@@ -1,29 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Put your description here.">
-  <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaris Facts and Rankings</title>
 
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: #ededed;
-    }
-  </style>
-  <title>polaris-chip</title>
+    <!-- Link to external JavaScript module for PolarisChip -->
+
+    <script type="module" src="./src/PolarisChip.js"></script>
+
+    <!-- Link to external CSS file for PolarisChip -->
+    <style>
+
+      /* Global styles for the HTML and body */
+        html, body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: rgb(238, 243, 247);
+        }
+        
+        /* Grid layout for the tile container with three columns */
+        .tile-container {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          max-width: 960px;
+          margin: 10px 50px 20px 10px ;
+        }
+
+        /* Media queries for responsive design */
+
+        @media (max-width: 768px) {
+          .tile-container {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 480px) {
+          .tile-container {
+          grid-template-columns: 1fr;
+          }
+        }
+    </style>
 </head>
 
 <body>
-  <polaris-chip></polaris-chip>
-  <polaris-chip title="Cool stuff"></polaris-chip>
+    <div class="tile-container">
+        <!-- Single line tile with a blue background -->
+        <polaris-chip 
+            backgroundColorType="chip--blue" 
+            chipLabel="88,000+ students">
+        </polaris-chip>
 
-  <script type="module" src="./src/polaris-chip.js"></script>
+        <!-- Multi-line tile with a light background -->
+        <polaris-chip 
+            backgroundColorType="chip--light" 
+            chipLabel="58%" 
+            secondaryText="Of students are Pennsylvania residents." 
+            hasMultipleLines="true">
+        </polaris-chip>
+
+        <!-- Single line tile with a gradient blue background -->
+        <polaris-chip 
+            backgroundColorType="chip--gradientBlue" 
+            chipLabel="Students from 50 states and 145 countries">
+        </polaris-chip>
+
+        <!-- Clickable tile with a background image -->
+        <polaris-chip 
+            backgroundColorType="chip--backgroundImage" 
+            chipLabel="Check out Undergraduate Admissions statistics" 
+            backgroundImageUrl="https://www.psu.edu/psu-edu-assets/images/power-facts/penn-state-tuition.jpg" 
+            externalLink="https://admissions.psu.edu/apply/statistics/" 
+            isClickable="true" 
+            showExternalLinkIcon="true">
+        </polaris-chip>
+
+        <polaris-chip 
+            backgroundColorType="chip--blue" 
+            chipLabel="Nearly 10,000 International Students">
+        </polaris-chip>
+
+        <polaris-chip 
+            backgroundColorType="chip--light" 
+            chipLabel="39%" 
+            secondaryText="Of students are from diverse backgrounds." 
+            hasMultipleLines="true">
+        </polaris-chip>
+
+        <polaris-chip 
+            backgroundColorType="chip--darkNavy" 
+            chipLabel="7900+ faculty across all campuses">
+        </polaris-chip>
+
+        <polaris-chip 
+            backgroundColorType="chip--darkNavy" 
+            chipLabel="759,000+ alumni">
+        </polaris-chip>
+
+        <polaris-chip 
+            backgroundColorType="chip--backgroundImage" 
+            chipLabel="See Penn State's Data Digest dashboards" 
+            backgroundImageUrl="https://www.psu.edu/psu-edu-assets/images/power-facts/data-digest.jpg" 
+            externalLink="https://datadigest.psu.edu/" 
+            isClickable="true" 
+            showExternalLinkIcon="true">
+        </polaris-chip>
+    </div>
 </body>
-
 </html>
